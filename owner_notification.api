@@ -1,0 +1,233 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "2016-07-25T16:29:08Z",
+    "title": "WILL BE SET DURING INSTALLATION"
+  },
+  "paths": {
+    "/owner_notification": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response"
+          },
+          "404": {
+            "description": "404 response"
+          },
+          "405": {
+            "description": "405 response"
+          },
+          "500": {
+            "description": "500 response"
+          }
+        },
+        "x-amazon-apigateway-integration": {
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            },
+            ".*NotFound.*": {
+              "statusCode": "404",
+              "responseTemplates": {
+                "application/json": "{\"errorMessage\":\"Not Found\"}"
+              }
+            },
+            ".*MethodNotAllowed.*": {
+              "statusCode": "405",
+              "responseTemplates": {
+                "application/json": "{\"errorMessage\":\"Method Not Allowed\"}"
+              }
+            },
+            ".*Server.*": {
+              "statusCode": "500",
+              "responseTemplates": {
+                "application/json": "{\"errorMessage\":\"Internal Server Error\"}"
+              }
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{\"resource_path\":\"$context.resourcePath\",\"http_method\":\"$context.httpMethod\"}"
+          },
+          "uri": "will be set when installed",
+          "passthroughBehavior": "when_no_templates",
+          "httpMethod": "POST",
+          "credentials": "will be set hen installed",
+          "type": "aws"
+        }
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response"
+          },
+          "404": {
+            "description": "404 response"
+          },
+          "405": {
+            "description": "405 response"
+          },
+          "500": {
+            "description": "500 response"
+          }
+        },
+        "x-amazon-apigateway-integration": {
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            },
+            ".*NotFound.*": {
+              "statusCode": "404",
+              "responseTemplates": {
+                "application/json": "{\"errorMessage\":\"Not Found\"}"
+              }
+            },
+            ".*MethodNotAllowed.*": {
+              "statusCode": "405",
+              "responseTemplates": {
+                "application/json": "{\"errorMessage\":\"Method Not Allowed\"}"
+              }
+            },
+            ".*Server.*": {
+              "statusCode": "500",
+              "responseTemplates": {
+                "application/json": 
+		  "{\"errorMessage\":\"Internal Server Error\"}"
+              }
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{\"resource_path\":\"$context.resourcePath\",\"http_method\":\"$context.httpMethod\",\"body\":$input.json('$.body'),\"subject\":$input.json('$.subject'),\"from_address\":$input.json('$.from_address')}"
+          },
+          "uri": "will be set when installed",
+          "passthroughBehavior": "when_no_templates",
+          "httpMethod": "POST",
+          "credentials": "will be set when installed",
+          "type": "aws"
+        }
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response"
+          },
+          "404": {
+            "description": "404 response"
+          },
+          "405": {
+            "description": "405 response"
+          },
+          "500": {
+            "description": "500 response"
+          }
+        },
+        "x-amazon-apigateway-integration": {
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            },
+            ".*NotFound.*": {
+              "statusCode": "404",
+              "responseTemplates": {
+                "application/json": "{\"errorMessage\":\"Not Found\"}"
+              }
+            },
+            ".*MethodNotAllowed.*": {
+              "statusCode": "405",
+              "responseTemplates": {
+                "application/json": "{\"errorMessage\":\"Method Not Allowed\"}"
+              }
+            },
+            ".*Server(.|\\n)*": {
+              "statusCode": "500",
+              "responseTemplates": {
+                "application/json":"{\"errorMessage\":\"Internal Server Error\"}"
+              }
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{\"resource_path\":\"$context.resourcePath\",\"http_method\":\"$context.httpMethod\",\"email_address\":$input.json('$.email_address'),\"sms_number\":$input.json('$.sms_number'),\"email_notify\":$input.json('$.email_notify'),\"sms_notify\":$input.json('$.sms_notify')}"
+          },
+          "uri": "will be set when installed",
+          "passthroughBehavior": "when_no_templates",
+          "httpMethod": "POST",
+          "credentials": "will be set when installed",
+          "type": "aws"
+        }
+      },
+      "delete": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response"
+          },
+          "404": {
+            "description": "404 response"
+          },
+          "405": {
+            "description": "405 response"
+          },
+          "500": {
+            "description": "500 response"
+          }
+        },
+        "x-amazon-apigateway-integration": {
+          "type": "aws",
+          "credentials": "will be set when installed",
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            },
+            ".*NotFound.*": {
+              "statusCode": "404",
+              "responseTemplates": {
+                "application/json": "{\"errorMessage\":\"Not Found\"}"
+              }
+            },
+            ".*MethodNotAllowed.*": {
+              "statusCode": "405",
+              "responseTemplates": {
+                "application/json": "{\"errorMessage\":\"Method Not Allowed\"}"
+              }
+            },
+            ".*Server.*": {
+              "statusCode": "500",
+              "responseTemplates": {
+                "application/json": 
+		  "{\"errorMessage\":\"Internal Server Error\"}"
+              }
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{\"resource_path\":\"$context.resourcePath\",\"http_method\":\"$context.httpMethod\"}"
+          },
+          "uri": "will be set when installed",
+          "passthroughBehavior": "when_no_templates",
+          "httpMethod": "POST"
+        }
+      }
+    }
+  }
+}
